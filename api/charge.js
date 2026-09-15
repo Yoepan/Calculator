@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
         let parameter = {
             transaction_details: {
                 order_id: "CALC-" + Math.floor(Math.random() * 1000000),
-                gross_amount: 150000
+                gross_amount: 19900
             },
             credit_card: {
                 secure: true
@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
             },
             item_details: [{
                 id: "ITEM1",
-                price: 150000,
+                price: 19900,
                 quantity: 1,
                 name: "Calculator+ Premium Monthly"
             }]
