@@ -39,6 +39,6 @@ module.exports = async (req, res) => {
 
     } catch (error) {
         console.error(error.message);
-        return res.status(500).json({ error: 'Failed to generate token' });
+        return res.status(500).json({ error: 'Failed to generate token', details: error.message });
     }
 };
