@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="Mid-client-0sKmMp2udfWLgKmJ"></script>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="btn func" onclick="clearDisplay()">AC</button>
+            <button class="btn func" onclick="appendOperator('+/-')">+/-</button>
+            <button class="btn func" onclick="appendOperator('%')">%</button>
+            <button class="btn op" onclick="appendOperator('/')">÷</button>
+
+            <button class="btn num" onclick="appendNumber('7')">7</button>
+            <button class="btn num" onclick="appendNumber('8')">8</button>
+            <button class="btn num" onclick="appendNumber('9')">9</button>
+            <button class="btn op" onclick="appendOperator('*')">×</button>
+
+            <button class="btn num" onclick="appendNumber('4')">4</button>
+            <button class="btn num" onclick="appendNumber('5')">5</button>
+            <button class="btn num" onclick="appendNumber('6')">6</button>
+            <button class="btn op" onclick="appendOperator('-')">-</button>
+
+            <button class="btn num" onclick="appendNumber('1')">1</button>
+            <button class="btn num" onclick="appendNumber('2')">2</button>
+            <button class="btn num" onclick="appendNumber('3')">3</button>
+            <button class="btn op" onclick="appendOperator('+')">+</button>
+
+            <button class="btn num zero" onclick="appendNumber('0')">0</button>
+            <button class="btn num" onclick="appendNumber('.')">.</button>
+            <button class="btn op" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <div id="premiumModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#ff9f0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#ff9f0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#ff9f0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>Unlock Calculator+</h2>
+            <p>Upgrade to our premium tier to compute results, unlock advanced scientific features, and remove daily limits.</p>
+            <div class="pricing">
+                <h3>$9.99</h3>
+                <span>per month</span>
+            </div>
+            <button id="pay-button" class="btn-subscribe pro" onclick="payMidtrans()">Subscribe Now</button>
+            <button class="btn-subscribe" onclick="closeModal()">Not Now</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
