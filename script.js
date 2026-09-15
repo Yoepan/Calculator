@@ -80,10 +80,10 @@ async function payMidtrans() {
                 }
             });
         } else {
-            alert('Error');
+            alert('Failed to get token: ' + JSON.stringify(data));
         }
     } catch (error) {
-        alert('Error');
+        alert('Network or server error: ' + error.message);
     } finally {
         payButton.innerText = 'Subscribe Now';
         payButton.disabled = false;
