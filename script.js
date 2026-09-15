@@ -1,4 +1,5 @@
 let currentInput = '0';
+let isPremium = localStorage.getItem('isPremium') === 'true';
 const displayElement = document.getElementById('display');
 const modalElement = document.getElementById('premiumModal');
 
@@ -36,7 +37,25 @@ function clearDisplay() {
 }
 
 function calculateResult() {
-    modalElement.style.display = 'flex';
+    if (!isPremium) {
+        modalElement.style.display = 'flex';
+    } else {
+        try {
+            // Replace % with /100 for basic percentage calculation
+            let evalString = currentInput.replace(/%/g, '/100');
+            let result = eval(evalString);
+            
+            if (result === undefined || Number.isNaN(result) || !isFinite(result)) {
+                currentInput = 'Error';
+            } else {
+                currentInput = String(result);
+            }
+            updateDisplay();
+        } catch (error) {
+            currentInput = 'Error';
+            updateDisplay();
+        }
+    }
 }
 
 function closeModal() {
@@ -66,8 +85,9 @@ async function payMidtrans() {
             window.snap.pay(data.token, {
                 onSuccess: function(result){
                     alert("Payment success!");
-                    currentInput = 'Paid!';
-                    updateDisplay();
+                    isPremium = true;
+                    localStorage.setItem('isPremium', 'true');
+                    calculateResult();
                 },
                 onPending: function(result){
                     alert("Waiting for payment...");
